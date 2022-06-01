@@ -1,0 +1,81 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}les offres {% endblock %}
+
+{% block body %}
+<section>
+            <div class="gap gray-bg">
+                <div class="container-fluid">
+                    <div class="row" id="page-contents">
+
+                        <div class="offset-lg-1 col-lg-10">
+                            <div class="career-page">
+                                <div class="carrer-title">
+                                    <h2>Open Offres </h2>
+
+                                </div>
+
+                                <div class="row">
+
+
+
+
+
+
+
+
+     <div class="col-lg-4 col-sm-6">
+                                        <div class="open-position">
+                                            <h4>{{offres.titre }}</h4>
+                                          <p style="color:green;" > Publié le {{offres.createdAt |date('d/m/Y')}} </p>
+       <p style="color:red;" > max le {{offres.update_at |date('d/m/Y')}} </p>
+          
+    <p > {{offres.contenu | raw}} </p>       
+    
+<h> Ajouter une poste </h>
+
+{{ form(formPostul)}}
+           </div>
+                                    </div>
+
+
+
+
+
+                                  
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
+
+
+

@@ -1,0 +1,66 @@
+
+{% block body %}
+
+
+    <h1 style="text-align: center"> Liste des offres </h1>
+    <br>
+
+
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <style>
+            #customers {
+                font-family: Arial, Helvetica, sans-serif;
+                border-collapse: collapse;
+                width: 50%;
+            }
+            #customers td, #customers th {
+                border: 1px solid #ddd;
+                padding: 2px;
+            }
+            #customers tr:nth-child(even){background-color: #FFC0CB	;}
+            #customers tr:hover {background-color: #ddd;}
+            #customers th {
+                padding-top: 12px;
+                padding-bottom: 12px;
+                text-align: center;
+                background-color: #87CEEB;
+                color: white;
+            }
+        </style>
+    </head>
+
+
+
+<table border ="1" id="customers" width="60%" height="120" >
+    <tr>
+
+        <th scope="row">Titre</th>
+        <th scope="row">Contenu</th>
+        <th scope="row">Date created</th>
+        <th scope="row">Date fin</th>
+      
+
+
+
+
+    </tr>
+    <tbody id="all">
+    {% for o in offres %}
+        <tr>
+            <td>{{ o.titre }}</td>
+            <td>{{ o.contenu | raw }}</td>
+            <td>{{ o.createdAt |date('d/m/Y') }}</td>
+            <td>{{ o.update_at |date('d/m/Y') }}</td>
+
+        </tr>
+
+
+    {%endfor%}
+
+
+
+
+{% endblock %}

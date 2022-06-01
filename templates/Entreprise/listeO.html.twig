@@ -1,0 +1,69 @@
+ 
+{% extends 'base.html.twig' %}
+{% block body %} 
+ 
+<section>
+            <div class="gap gray-bg">
+                <div class="container-fluid">
+                    <div class="row" id="page-contents">
+
+                        <div class="offset-lg-1 col-lg-10">
+                            <div class="career-page">
+                                <div class="carrer-title">
+                                <h2>
+
+ <a href="addoffre" class="underline"> Créer une offre </a>
+
+  </h2>
+ <br>
+                                    <h2>Open Offres </h2>
+
+                                </div>
+
+                                <div class="row">
+
+{% for os in ofs %}
+
+     <div class="col-lg-4 col-sm-6">
+                                        <div class="open-position">
+                                            <h4>{{os.titre }}</h4>
+                                               <p style="color:green;" > Publié le {{os.createdAt |date('d/m/Y')}} </p>
+       <p style="color:red;" > max le {{os.update_at |date('d/m/Y')}} </p>
+          
+    <p > {{os.contenu | raw}} </p>  
+<h4>Postulations</h4>
+{% for po in pos %}
+{% if po.offre.id == os.id  %}
+<ul>
+
+<li> {{po.pseudo}} </li>
+<li> {{po.email}} </li>
+<li> {{po.contenu}} </li>
+</ul>
+<br/>
+
+{% endif %}
+{% endfor %}
+      
+    <a href="{{ path('deleteOf',{'id':os.id}) }}">delete</a>
+<a href="{{ path('updateOf',{'id':os.id}) }}">modifier</a>
+              </div>
+                                    </div>
+
+{% endfor %}
+   </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+
+
+
+
+
+{% endblock %}
